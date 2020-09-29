@@ -5,7 +5,8 @@ class CreateInstruments < ActiveRecord::Migration[6.0]
       t.text :description
       t.integer :daily_rate
       t.integer :store_id
-
+      t.string :image_url 
+      t.string :category
       t.timestamps
     end
   end

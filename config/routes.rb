@@ -3,6 +3,6 @@ Rails.application.routes.draw do
   resources :users 
   resources :rentals
   resources :instruments
-    resources :image_element
+  resources :image_element
   resources :stores
 end

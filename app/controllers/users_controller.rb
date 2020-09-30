@@ -1,11 +1,14 @@
 class UsersController < ApplicationController
-<<<<<<< HEAD
-    
+
 before_action :authenticated?, only: [:index, :show]
 
     def index
         @user = User.all
     end
+
+    def new 
+        @user = User.new
+    end 
 
     def create 
         new_user = User.new(user_params)
@@ -32,30 +35,8 @@ before_action :authenticated?, only: [:index, :show]
 
     private
 
-    def user params
+    def user_params
         params.require(:user).permit(:name, :password, :password_confirmation)
     end
 
 end
-=======
-    def show 
-        @user = User.find(params[:id])
-    end 
-
-    def edit 
-    end 
-
-    def new 
-        @user = User.new
-    end 
-
-    def create 
-    end 
-
-    private 
-
-    def user_params 
-        params.require(:user).permit(:name)
-    end 
-end 
->>>>>>> c422a5cc626c6afcd8dfdd51271bc58c9d244259

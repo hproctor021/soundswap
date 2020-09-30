@@ -1,7 +1,3 @@
-<h1> store index all teh goodies >:) </h1> 
+<h1>Rent. Play. Swap.</h1> 
 
-<% @stores.each do | store | %> 
-   <% store.instruments.each do | inst | %>
-    <img src="<%= inst.image_url %>">
-    <% end %> 
-<% end %> 
+<%= link_to "Guitars", instruments_path %>

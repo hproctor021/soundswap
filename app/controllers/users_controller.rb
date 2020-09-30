@@ -1,12 +1,15 @@
 class UsersController < ApplicationController
-<<<<<<< HEAD
-    
+
 before_action :authenticated?, only: [:index, :show]
 
-    def index
-        @user = User.all
-    end
 
+    def edit 
+    end 
+
+    def new
+        @user = User.new
+    end
+    
     def create 
         new_user = User.new(user_params)
         if new_user.save && params[:password] == params[:password_confirmation] 
@@ -17,6 +20,14 @@ before_action :authenticated?, only: [:index, :show]
             redirect_to new_user_path
         end
     end
+    # @user = User.new(user_params)
+    #    if @user.valid?
+    #         @user.save
+    #         redirect_to '/stores'
+    #    else 
+    #     redirect_to '/users/new'
+    #     flash[:error] = "Name already exists, choose another name"
+    #    end
     
     def authenticated?
         if session[:id] != nil
@@ -32,30 +43,8 @@ before_action :authenticated?, only: [:index, :show]
 
     private
 
-    def user params
+    def user_params
         params.require(:user).permit(:name, :password, :password_confirmation)
     end
 
 end
-=======
-    def show 
-        @user = User.find(params[:id])
-    end 
-
-    def edit 
-    end 
-
-    def new 
-        @user = User.new
-    end 
-
-    def create 
-    end 
-
-    private 
-
-    def user_params 
-        params.require(:user).permit(:name)
-    end 
-end 
->>>>>>> c422a5cc626c6afcd8dfdd51271bc58c9d244259

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :rentals
   resources :instruments
 
-  get '/instruments/:category', to: "instruments#categories"
+  get '/instruments/:category', to: "instruments#categories", as: instruments_categories
 
   resources :image_element
   resources :stores

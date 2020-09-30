@@ -4,7 +4,7 @@ class InstrumentsController < ApplicationController
     end 
 
     def categories 
-        @category = Instrument.find_by(category: params[:category])
+        @category = Instrument.where(category: params[:category])
     end 
 
     def show 

@@ -9,13 +9,9 @@ Rails.application.routes.draw do
   resources :image_element
   resources :stores
 
-<<<<<<< HEAD
-  
-=======
   get '/sign_in', to: 'sessions#sign_in'
 
   post '/sign_in', to: 'sessions#create'
 
   delete '/sessions', to: 'sessions#destroy'
->>>>>>> 503df697ad3d86695b02e05bc258677e05d738fe
 end

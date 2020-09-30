@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
     
-    before_aciton :authenticated?, only: [:index, :show]
+before_action :authenticated?, only: [:index, :show]
 
     def index
         @user = User.all
@@ -15,6 +15,7 @@ class UsersController < ApplicationController
             flash[:error] = new_user.errors.full_messages
             redirect_to new_user_path
         end
+    end
     
     def authenticated?
         if session[:id] != nil

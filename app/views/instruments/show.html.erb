@@ -1,0 +1,8 @@
+<h1> <%= @instrument.name %> </h1> 
+<br>
+<img src="<%= @instrument.image_url %>">
+<br> 
+<p> <%= @instrument.description.gsub("/n", ". ") %> </p> 
+<br>
+<strong> Daily Rate - <%= @instrument.daily_rate %> </strong>
+

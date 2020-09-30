@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   resources :users 
   resources :rentals
   resources :instruments
+
+  get '/instruments/:category', to: "instruments#categories"
+
   resources :image_element
   resources :stores
 
@@ -11,5 +14,6 @@ Rails.application.routes.draw do
   post '/sessions', to: 'sessions#create'
 
   delete '/sessions', to: 'sessions#destroy'
+
 
 end

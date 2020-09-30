@@ -132,6 +132,6 @@ u5 = User.create(name: "Antonio", password: "123")
 u6 = User.create(name: "Paul", password: "123")
 u7 = User.create(name: "Ringo", password: "123")
 
-# r1 = Rental.create(user_id: u1.id, isntrument_id: ua.id)
+
 
 

@@ -3,10 +3,6 @@ class InstrumentsController < ApplicationController
         @instruments = Instrument.all
     end 
 
-    def categories 
-        @category = Instrument.where(category: params[:category])
-    end 
-
     def show 
         @instrument = Instrument.find(params[:id])
     end 

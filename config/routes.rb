@@ -5,4 +5,10 @@ Rails.application.routes.draw do
   resources :instruments
     resources :image_element
   resources :stores
+
+  get '/sign_in', to: 'sessions#sign_in'
+
+  post '/sign_in', to: 'sessions#create'
+
+  delete '/sessions', to: 'sessions#destroy'
 end

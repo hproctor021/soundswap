@@ -3,6 +3,11 @@ Rails.application.routes.draw do
   resources :users 
   resources :rentals
   resources :instruments
+
+  get '/instruments/:category', to: "instruments#categories"
+
   resources :image_element
   resources :stores
+
+  
 end

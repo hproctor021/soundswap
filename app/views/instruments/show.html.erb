@@ -6,3 +6,4 @@
 <br>
 <strong> Daily Rate - <%= @instrument.daily_rate %> </strong>
 
+<%= button_to 'rent', {:controller => :rentals, :action => 'create'}, :method => :create %>

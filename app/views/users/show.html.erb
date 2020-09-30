@@ -1,4 +1,12 @@
 
 <h1><%= @user.name %> Show Page </h1>
 
+<% @rentals.each do | instrument | %>
+    <%= instrument.image_url %>
+    <%= instrument.name %>
+
+<% end %>
+
+
 <%= button_to 'log_out', {:controller => :sessions, :action => 'destroy'}, :method => :delete %>
+

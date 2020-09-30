@@ -1,5 +1,7 @@
 class SessionsController < ApplicationController
 
+    
+
     def sign_in
         @user = User.new
     end
@@ -8,10 +10,10 @@ class SessionsController < ApplicationController
         @user = User.find_by(name: params[:user][:name])
         if @user && @user.authenticate(params[:user][:password])
             session[:id] = @user.id
-            redirect_to '/stores/index'
+            redirect_to '/stores'
         else
             flash[:error] = "Incorrect Name or Password"
-            redirect_to '/sign-in'
+            redirect_to '/sign_in'
         end
     end
 

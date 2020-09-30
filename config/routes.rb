@@ -9,8 +9,13 @@ Rails.application.routes.draw do
   resources :stores
 
   get '/sign_in', to: 'sessions#sign_in'
+ 
+  post '/sessions', to: 'sessions#create'
+ 
 
-  post '/sign_in', to: 'sessions#create'
-
+  
   delete '/sessions', to: 'sessions#destroy'
+  
+
+
 end

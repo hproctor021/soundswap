@@ -97,11 +97,6 @@ roland = Instrument.create(name: "Roland SP-404A", description: "A standalone el
 Sample anytime, anywhere with the built-in mic and battery power
 Can be triggered from the 16-step sequencer in the TR-8 Rhythm Performer (TR-8 system version 1.50 or later required)", store_id: s1.id, image_url: "https://rocknrollrentals.com/images/product/medium/ae00-2488.png", category: "Keyboards")
 
-<<<<<<< HEAD
-Instrument.create(name: "Squier by Fender Affinity Series Jazzmaster", description: "Offset body classic for students and those looking for an affordable version of a stylistic classic guitar *Three-way toggle pickup switch*", daily_rate: 5, store_id: s1.id, image_url:"https://rocknrollrentals.com/images/product/medium/ae00-2251.png", category: "Guitars")
-=======
-
->>>>>>> rental
 Instrument.create(name: "Squier by Fender Classic-Vibe 60's Mustang", description: "Faithful and Affordable Mustang Inspired by 1960s-era models with a slim profile and nickel-plated hardware", daily_rate: 9, store_id: s1.id, image_url:"https://rocknrollrentals.com/images/product/medium/ae00-2978.png", category: "Guitars")
 Instrument.create(name: "Fender Player Series Left-Handed Telecaster", description: "Left handed workhorse Telecaster with gloss finish and Two Player Series single-coil Telecaster pickup", daily_rate: 14, store_id: s1.id, image_url:"https://rocknrollrentals.com/images/product/medium/ae00-2813.png", category: "Guitars")
 Instrument.create(name: "Fender Signature Jimmy Vaughn 'Tex-Mex Strat'", description: "Texas artist Jimmie Vaughn's signature model with master volume and 2 tone controls", daily_rate: 20, store_id: s1.id, image_url:"https://rocknrollrentals.com/images/product/medium/ae00-1354.png", category: "Guitars")

@@ -1,0 +1,8 @@
+<% @category.find do | cat | %> 
+    <h1><%= cat.category.upcase %></h1>
+<% end %>
+
+<% @category.each do | instr | %>
+    <%= link_to image_tag(instr.image_url), instrument_path(instr.id) %>
+<% end %> 
+

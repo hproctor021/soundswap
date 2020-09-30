@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :users 
   resources :rentals
   resources :instruments
-    resources :image_element
+  resources :image_element
   resources :stores
 
   get '/sign_in', to: 'sessions#sign_in'

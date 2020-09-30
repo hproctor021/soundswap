@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+<<<<<<< HEAD
     
 before_action :authenticated?, only: [:index, :show]
 
@@ -36,3 +37,25 @@ before_action :authenticated?, only: [:index, :show]
     end
 
 end
+=======
+    def show 
+        @user = User.find(params[:id])
+    end 
+
+    def edit 
+    end 
+
+    def new 
+        @user = User.new
+    end 
+
+    def create 
+    end 
+
+    private 
+
+    def user_params 
+        params.require(:user).permit(:name)
+    end 
+end 
+>>>>>>> c422a5cc626c6afcd8dfdd51271bc58c9d244259

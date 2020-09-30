@@ -3,13 +3,23 @@ Rails.application.routes.draw do
   resources :users 
   resources :rentals
   resources :instruments
+
+  get '/instruments/:category', to: "instruments#categories"
+
   resources :image_element
   resources :stores
 
+<<<<<<< HEAD
+  
+=======
   get '/sign_in', to: 'sessions#sign_in'
 
   post '/sessions', to: 'sessions#create'
 
   delete '/sessions', to: 'sessions#destroy'
+<<<<<<< HEAD
 
+=======
+>>>>>>> 503df697ad3d86695b02e05bc258677e05d738fe
+>>>>>>> marcus
 end

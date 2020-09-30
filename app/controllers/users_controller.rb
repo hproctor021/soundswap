@@ -31,7 +31,7 @@ before_action :authenticated?, only: [:index, :show]
 
     private
 
-    def user params
+    def user_params
         params.require(:user).permit(:name, :password, :password_confirmation)
     end
 

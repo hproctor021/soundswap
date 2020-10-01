@@ -3,6 +3,7 @@ class UsersController < ApplicationController
     before_action :authenticated?, only: [:index, :show, :edit]
 
 
+
     def new 
         @user = User.new
         session[:id] = @user.id

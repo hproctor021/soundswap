@@ -1,13 +1,14 @@
 class UsersController < ApplicationController
 
-before_action :authenticated?, only: [:index, :show]
 
+    before_action :authenticated?, only: [:index, :show, :edit]
 
 
     def new 
         @user = User.new
         session[:id] = @user.id
     end 
+
 
     def create 
         new_user = User.new(user_params)
@@ -19,15 +20,21 @@ before_action :authenticated?, only: [:index, :show]
             redirect_to new_user_path
         end
     end
-    # @user = User.new(user_params)
-    #    if @user.valid?
-    #         @user.save
-    #         redirect_to '/stores'
-    #    else 
-    #     redirect_to '/users/new'
-    #     flash[:error] = "Name already exists, choose another name"
-    #    end
-    
+   
+    def edit
+        current_user
+    end   
+
+    def update
+        if current_user.update(user_params)
+            redirect_to '/stores'
+        else
+            flash[:error] = "Your passwords don't match, try again"
+            render 'edit'
+        end
+    end
+        
+
     def authenticated?
         if session[:id] != nil
             @user = User.find(session[:id])
@@ -36,16 +43,21 @@ before_action :authenticated?, only: [:index, :show]
         end
     end
     
-    def show
-        @user = User.find(params[:id])
-        #@rentals = Rental.where(user_id: params[:rental][:user_id]) == @user.id
 
+    def show
+        current_user
+        @rentals = Rental.where(user_id: params[:user_id]) == current_user.id
     end
+
 
     private
 
     def user_params
         params.require(:user).permit(:name, :password, :password_confirmation)
+    end
+
+    def current_user
+        @user = User.find(params[:id])
     end
 
 end

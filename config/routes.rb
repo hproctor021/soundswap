@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :users 
+  post '/rentals', to: 'rentals#create_rental'
   resources :rentals
   get '/categories/:category', to: 'categories#show'
   resources :categories

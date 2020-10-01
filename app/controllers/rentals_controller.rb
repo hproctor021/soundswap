@@ -1,5 +1,5 @@
 class RentalsController < ApplicationController
-    
+
     
     def new 
         @rental = Rental.new
@@ -15,11 +15,10 @@ class RentalsController < ApplicationController
             redirect_to user_path(current_user)
     
         end
-    end 
+    end
 
 
     def destroy 
-        # byebug
         session[:rental] = current_rental.id
         current_rental.destroy
         redirect_to user_path(current_user)
@@ -30,7 +29,8 @@ class RentalsController < ApplicationController
         @rental = Rental.find(params[:id])
     end
 
-    
+    private
+
     def rental_params
        params.require(:rental).permit(:user_id, :instrument_id) 
     end

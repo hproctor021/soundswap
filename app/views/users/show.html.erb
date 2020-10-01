@@ -2,11 +2,13 @@
 <h1>Hallo, <%= @user.name %>!</h1>
 <h2>Here are your current rentals:</h2>
 
+
 <% @user.rentals.each do | rental | %>
     <%= link_to image_tag(rental.instrument.image_url)%>
     <h4><%=rental.instrument.name%></h4>
     <%= button_to 'Cancel Rental', {:controller => :rentals, :action => 'destroy', :id => rental.id}, :method => :delete %>
     <%end%>
+
 
 
 

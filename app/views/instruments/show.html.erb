@@ -6,8 +6,5 @@
 <br>
 <strong> Daily Rate - <%= @instrument.daily_rate %> </strong>
 
-<% if logged_in? && @rental.user_id != current_user.id %>
-    <%= button_to 'rent', {:controller => :rentals, :action => 'create'}, :method => :create %>
-<% elsif logged_in? && @rental.user_id == current_user.id %>
-    <%= button_to 'return', {:controller => :rentals, :action => 'destroy'}, :method => :delete %>
-<% end %>
+<br>
+<button><%= link_to "Rent", new_rental_path %></button>

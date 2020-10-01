@@ -1,1 +1,16 @@
-<h1> user edit page</h1>
+<center><h1> Change Your Password</h1>
+<br><br>
+<%= form_for @user do | f | %>
+<%= f.label :name %>
+<%= f.text_field :name %>
+<%= f.label :new_password %>
+<%= f.password_field :password %>
+<%= f.label :confirm_password%>
+<%= f.password_field :password_confirmation %>
+<br><br>
+<%= f.submit "Change Password" %>
+<% end %>
+
+<% flash.each do | key, v | %>
+    <li style='color: red '> <%= v %> </li>
+    <%end %>

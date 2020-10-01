@@ -10,6 +10,7 @@
 <br>
 <strong> Daily Rate - <%= @instrument.daily_rate %> </strong>
 
+
 <br><br>
 <center><% if current_user %>
     <%= button_to 'rent', {:controller => :rentals, :action => 'create', :rental => {:user_id => session[:id], :instrument_id => @instrument.id}}, :method => 'post' %>

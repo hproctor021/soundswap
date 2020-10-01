@@ -1,9 +1,15 @@
 
-<h1><%= @user.name %> Show Page </h1>
+<h1>Hallo, <%= @user.name %>!</h1>
+<h2>Here are your current rentals:</h2>
+
+<% @user.rentals.each do | rental | %>
+    <%= link_to image_tag(rental.instrument.image_url)%>
+    <h4><%=rental.instrument.name%></h4>
+    <%= button_to 'Cancel Rental', {:controller => :rentals, :action => 'destroy', :id => rental.id}, :method => :delete %>
+    <%end%>
 
 
-<% end %>
 
-
-<%= button_to 'log_out', {:controller => :sessions, :action => 'destroy'}, :method => :delete %>
-
+<br><br>
+<center><%= button_to 'log_out', {:controller => :sessions, :action => 'destroy'}, :method => :delete %>
+<%= button_to 'Back to the Shop', stores_path, method: :get %>

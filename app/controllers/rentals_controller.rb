@@ -12,6 +12,7 @@ class RentalsController < ApplicationController
         @new_rental = Rental.create(rental_params)
         @new_rental.user = current_user
         if @new_rental.save
+            flash[:notice] = "You have successfully rented #{@new_rental.instrument.name}"
             redirect_to user_path(current_user)
     
         end

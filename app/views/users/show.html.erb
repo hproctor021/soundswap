@@ -2,7 +2,10 @@
 <h1>Hallo, <%= @user.name %>!</h1>
 <h2>Here are your current rentals:</h2>
 
-
+<% flash.each do | key, v | %>
+    <li style='color: blue '> <%= v %> </li>
+    <%end %>
+    
 <% @user.rentals.each do | rental | %>
     <%= link_to image_tag(rental.instrument.image_url)%>
     <h4><%=rental.instrument.name%></h4>
@@ -16,3 +19,4 @@
 <br><br>
 <center><%= button_to 'log_out', {:controller => :sessions, :action => 'destroy'}, :method => :delete %>
 <%= button_to 'Back to the Shop', stores_path, method: :get %>
+<%= button_to 'Change Password', edit_user_path, method: :get %>

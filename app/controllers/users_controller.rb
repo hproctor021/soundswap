@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-before_action :authenticated?, only: [:index, :show]
+    before_action :authenticated?, only: [:index, :show, :edit]
 
 
     def new 
@@ -20,6 +20,19 @@ before_action :authenticated?, only: [:index, :show]
         end
     end
    
+    def edit
+        current_user
+    end   
+
+    def update
+        if current_user.update(user_params)
+            redirect_to '/stores'
+        else
+            flash[:error] = "Your passwords don't match, try again"
+            render 'edit'
+        end
+    end
+        
 
     def authenticated?
         if session[:id] != nil
@@ -31,16 +44,19 @@ before_action :authenticated?, only: [:index, :show]
     
 
     def show
-        @user = User.find(params[:id])
-        #@rentals = Rental.where(user_id: params[:rental][:user_id]) == @user.id
-
+        current_user
+        @rentals = Rental.where(user_id: params[:user_id]) == current_user.id
     end
 
-    
+
     private
 
     def user_params
         params.require(:user).permit(:name, :password, :password_confirmation)
+    end
+
+    def current_user
+        @user = User.find(params[:id])
     end
 
 end

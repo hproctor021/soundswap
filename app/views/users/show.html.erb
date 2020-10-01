@@ -5,7 +5,7 @@
 <% flash.each do | key, v | %>
     <li style='color: blue '> <%= v %> </li>
     <%end %>
-
+    
 <% @user.rentals.each do | rental | %>
     <%= link_to image_tag(rental.instrument.image_url)%>
     <h4><%=rental.instrument.name%></h4>

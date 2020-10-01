@@ -29,8 +29,9 @@ class RentalsController < ApplicationController
     end
 
 
+    private
+
     def rental_params
         params.require(:rental).permit(:user_id, :instrument_id)
     end
-
 end

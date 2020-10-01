@@ -9,7 +9,7 @@
     <% @category.each do | instr | %>
     
         <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="<%=instr.image_url%>" alt="guitar">
+        <img class="card-img-top" src="<%= instr.image_url %>" alt="">
             <div class="card-body">
                 <p class="card-text"><%=link_to instr.name, instrument_path(instr.id) %></p>
             </div>

@@ -6,6 +6,7 @@ before_action :authenticated?, only: [:index, :show]
 
     def new 
         @user = User.new
+        session[:id] = @user.id
     end 
 
     def create 
@@ -37,7 +38,7 @@ before_action :authenticated?, only: [:index, :show]
     
     def show
         @user = User.find(params[:id])
-        @rentals = Rental.where(user_id: params[:user_id]) == @user.id
+        #@rentals = Rental.where(user_id: params[:rental][:user_id]) == @user.id
 
     end
 

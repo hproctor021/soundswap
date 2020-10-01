@@ -1,6 +1,6 @@
 class RentalsController < ApplicationController
 
-    
+  
     def new 
         @rental = Rental.new
         redirect_to rentals_path
@@ -30,10 +30,11 @@ class RentalsController < ApplicationController
         @rental = Rental.find(params[:id])
     end
 
+
     private
 
     def rental_params
-       params.require(:rental).permit(:user_id, :instrument_id) 
+        params.require(:rental).permit(:user_id, :instrument_id)
     end
-
+  
 end

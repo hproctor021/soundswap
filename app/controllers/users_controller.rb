@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 
+
     before_action :authenticated?, only: [:index, :show, :edit]
 
 

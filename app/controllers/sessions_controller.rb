@@ -7,11 +7,11 @@ class SessionsController < ApplicationController
 
 
     def create
-        byebug
+        
         @user = User.find_by(name: params[:user][:name])
         if @user && @user.authenticate(params[:user][:password])
             session[:id] = @user.id
-            redirect_to '/stores' 
+            redirect_to '/users/<%=session[:id]%>' 
         else
             flash[:error] = "It doesn't look like you have an account yet, create one here!"
             redirect_to '/users/new'

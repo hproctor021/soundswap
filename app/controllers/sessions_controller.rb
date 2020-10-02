@@ -12,6 +12,9 @@ class SessionsController < ApplicationController
         if @user && @user.authenticate(params[:user][:password])
             session[:id] = @user.id
             redirect_to '/stores' 
+        elsif @user && !@user.authenticate(params[:user][:password])
+            flash[:error] = "Incorrect password"
+            redirect_to '/sign_in'
         else
             flash[:error] = "It doesn't look like you have an account yet, create one here!"
             redirect_to '/users/new'

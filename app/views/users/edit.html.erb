@@ -1,16 +1,20 @@
 <center><h1> Change Your Password</h1>
 <br><br>
-<%= form_for @user do | f | %>
-<%= f.label :name %>
-<%= f.text_field :name %>
-<%= f.label :new_password %>
-<%= f.password_field :password %>
-<%= f.label :confirm_password%>
-<%= f.password_field :password_confirmation %>
-<br><br>
-<%= f.submit "Change Password" %>
+<%= form_for @user, :html => {:class => "form-horizontal center", :style => "text-align: center"} do | f | %>
+    <div class="form-group">
+        <%= f.text_field :name, placeholder: "Enter Name" %>
+    </div>
+    <div class="form-group">
+        <%= f.password_field :password, placeholder: "Enter New Password" %>
+    </div>
+    <div class="form-group">
+        <%= f.password_field :password_confirmation, placeholder: "Confirm New Password" %>
+    </div>
+    <div class="actions">
+        <%= f.submit "Change Password", class: "btn btn-primary" %>
+    </div>
 <% end %>
 
 <% flash.each do | key, v | %>
     <li style='color: red '> <%= v %> </li>
-    <%end %>
+<%end %>

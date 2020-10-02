@@ -1,6 +1,5 @@
 class RentalsController < ApplicationController
 
-  
     def new 
         @rental = Rental.new
         redirect_to rentals_path
@@ -14,7 +13,6 @@ class RentalsController < ApplicationController
         if @new_rental.save
             flash[:notice] = "You have successfully rented #{@new_rental.instrument.name}"
             redirect_to user_path(current_user)
-    
         end
     end
 
@@ -36,5 +34,4 @@ class RentalsController < ApplicationController
     def rental_params
         params.require(:rental).permit(:user_id, :instrument_id)
     end
-  
 end

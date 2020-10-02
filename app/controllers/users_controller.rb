@@ -2,7 +2,9 @@ class UsersController < ApplicationController
 
 
     before_action :authenticated?, only: [:index, :edit]
-
+    def index
+        redirect_to '/sign_in'
+    end
 
     def new 
         @user = User.new
@@ -22,12 +24,12 @@ class UsersController < ApplicationController
     end
    
     def edit
-        current_user
+        @user = User.find(session[:id])
     end   
 
     def update
-        if current_user == session[:user]
-            current_user.update(user_params)
+        @user = User.find(params[:id])
+        if @user.update(user_params)
             redirect_to '/stores'
         else
             flash[:error] = "Your passwords don't match, try again"
@@ -37,7 +39,8 @@ class UsersController < ApplicationController
         
 
     def authenticated?
-        if session[:id] != nil
+        byebug
+        if session[:id] != nil 
             @user = User.find(session[:id])
         else
             redirect_to '/sign_in'
@@ -46,19 +49,22 @@ class UsersController < ApplicationController
     
 
     def show
-        current_user
-        @rentals = Rental.where(user_id: params[:user_id]) == current_user.id
+        
+        @user = User.find(session[:id])
+        @rentals = Rental.where(user_id: params[:user_id]) == @user.id
     end
 
 
     private
 
+    # def current_user
+    #     @user = User.find(params[:id])
+    #     session[:id]
+    # end 
+    
     def user_params
         params.require(:user).permit(:name, :password, :password_confirmation)
     end
 
-    def current_user
-        @user = User.find(params[:id])
-    end
 
 end

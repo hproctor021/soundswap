@@ -39,7 +39,7 @@ class UsersController < ApplicationController
         
 
     def authenticated?
-        byebug
+        # byebug
         if session[:id] != nil 
             @user = User.find(session[:id])
         else

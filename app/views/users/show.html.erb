@@ -1,11 +1,12 @@
 
 <h1 class="display-2 text-primary" style="text-align: center">Hello, <%= @user.name %>!</h1>
-<h2 class="display-5 text-primary" style="text-align: center">Here are your current rentals:</h2>
 
-<% flash.each do | key, v | %>
+<h2 class="display-5 text-primary" style="text-align: center">Here are your current rentals:</h2>
+<br><br><br>
+<center><% flash.each do | key, v | %>
     <li style='color: blue '> <%= v %> </li>
 <%end %>
-   
+<br><br>
 <div class="card-columns" style="text-align: center">
 <% @user.rentals.each do | rental | %>
 
@@ -24,7 +25,7 @@
 
 
 
-<br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br>
 <center><%= button_to 'Log Out', {:controller => :sessions, :action => 'destroy'}, :method => :delete, class: "btn btn-primary" %>
 <br>
 <%= button_to 'Manage Account', edit_user_path, method: :get, class: "btn btn-primary" %>

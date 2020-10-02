@@ -1,7 +1,10 @@
 <h1 class="display-4 text-primary" style="text-align: center">Create an Account (Sign up)</h1>
+<br>
+
+<center><% flash.each do | key, v | %>
+    <li style='color: red '> <%= v %> </li>
+<%end %>
 <br><br>
-
-
 <%= form_with model: @user, :html => {:class => "form-horizontal center", :style => "text-align: center"}, :url => url_for(:controller => 'users', :action => 'create') do | f |%>
     <div class="form-group">
         <%= f.text_field :name, placeholder: "Enter Name" %>
@@ -20,11 +23,8 @@
 <% end %>
 
 
-<br>
+<br><br>
 
-<% flash.each do | key, v | %>
-    <li style='color: red '> <%= v %> </li>
-<%end %>
 
 <p style="text-align: center"> Already have an account? </p>
 <center><%= button_to 'Sign in', sign_in_path, method: :get, class: "btn btn-primary" %>

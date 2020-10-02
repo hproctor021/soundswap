@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
 
-    before_action :authenticated?, only: [:index, :show, :edit]
+    before_action :authenticated?, only: [:index, :edit]
 
 
     def new 
@@ -26,7 +26,8 @@ class UsersController < ApplicationController
     end   
 
     def update
-        if current_user.update(user_params)
+        if current_user == session[:user]
+            current_user.update(user_params)
             redirect_to '/stores'
         else
             flash[:error] = "Your passwords don't match, try again"

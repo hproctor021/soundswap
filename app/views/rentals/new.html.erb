@@ -1,11 +1,2 @@
-<%= form_with model: @rental do |f| %> 
-    <%= f.label :username %> 
-    <%= f.text_field :username %> 
-    <%= f.collection_select :instrument_id, Instrument.all, :id, :name, prompt: true %>
-    <%= f.label :start_date %> 
-    <%= select_date Date.today, prefix: :start_date %> 
-    <%= f.label :end_date %>
-    <%= select_date Date.today, prefix: :end_date %>
-    <%= f.submit "Rent It!" %> 
-<% end %> 
+
 

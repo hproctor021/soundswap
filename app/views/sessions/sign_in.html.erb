@@ -1,16 +1,24 @@
-<h1> User Sign In </h1>
+<h1 class="display-4 text-primary" style="text-align: center"> User Sign In </h1>
+
 
 <% flash.each do | key, v | %>
     <li style='color:red'><%= v %></li>
-    <% end %>
+<% end %>
 
+<br>
 
-<%= form_with model: @user, :url => url_for(:controller => 'sessions', :action => 'create') do | f |%>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-    <%= f.label :password %>
-    <%= f.password_field :password%>
-    <%= f.submit "Sign in" %>
-    <% end %>
-    <br>
-    <%= button_to 'Create an Account', new_user_path, method: :get %>
+<%= form_with model: @user, :html => {:class => "form-horizontal center", :style => "text-align: center"}, :url => url_for(:controller => 'sessions', :action => 'create') do | f |%>
+    <div class="form-group">
+        <%= f.text_field :name, placeholder: "Enter Name" %>
+    </div>
+    <div class="form-group">
+        <%= f.password_field :password, placeholder: "Enter Password"%>
+    </div>
+    <div class="actions">
+        <%= f.submit "Sign in", class: "btn btn-primary" %>
+    </div>
+<% end %>
+
+<br>
+<p style="text-align: center"> Don't have an account? </p>
+<center><%= button_to 'Create an Account', new_user_path, method: :get, class: "btn btn-primary" %>

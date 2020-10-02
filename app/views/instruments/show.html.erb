@@ -1,19 +1,23 @@
-
-<h1> <%= @instrument.name %> </h1> 
 <br>
-<div class="container-fluid text-center text-md-left">
-    <img src="<%= @instrument.image_url %>">
+<div class="container">
+    <div class="row float-left">
+        <div class="col">
+            <img src="<%= @instrument.image_url %>">
+        </div>
+    </div>
+    <div class="row" style="text-align: center">
+        <div class="col float-right">
+            <h1 class="display-4 text-primary" style="text-align: center"> <%= @instrument.name %> </h1> 
+            <p> <%= @instrument.description.gsub("\n", ". ") %> </p> 
+            <strong> Daily Rate - <%= @instrument.daily_rate %> </strong>
+            <br>
+            <br>
+            <% if current_user %>
+                <%= button_to 'Rent it!', {:controller => :rentals, :action => 'create', :rental => {:user_id => session[:id], :instrument_id => @instrument.id}}, :method => 'post', class: "btn btn-primary" %>
+            <% else %>
+                <%= button_to 'Sign in to Rent', sign_in_path, method: :get, class: "btn btn-primary" %>  
+            <% end %>
+        </div>
+    </div>
 </div>
-<hr class="clearfix w-100 d-md-none pb-3">
-<br> 
-<p> <%= @instrument.description.gsub("\n", ". ") %> </p> 
 <br>
-<strong> Daily Rate - <%= @instrument.daily_rate %> </strong>
-
-
-<br><br>
-<center><% if current_user %>
-    <%= button_to 'rent', {:controller => :rentals, :action => 'create', :rental => {:user_id => session[:id], :instrument_id => @instrument.id}}, :method => 'post' %>
-<% else %>
-    <%= button_to 'Sign in to Rent', sign_in_path, method: :get %>  
-<% end %>  

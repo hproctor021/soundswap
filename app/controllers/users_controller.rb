@@ -2,7 +2,9 @@ class UsersController < ApplicationController
 
 
     before_action :authenticated?, only: [:index, :edit]
-
+    def index
+        redirec_to '/sign_in'
+    end
 
     def new 
         @user = User.new
@@ -37,6 +39,7 @@ class UsersController < ApplicationController
         
 
     def authenticated?
+        byebug
         if session[:id] != nil 
             @user = User.find(session[:id])
         else

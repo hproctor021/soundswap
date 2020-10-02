@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
     before_action :authenticated?, only: [:index, :edit]
     def index
-        redirec_to '/sign_in'
+        redirect_to '/sign_in'
     end
 
     def new 
